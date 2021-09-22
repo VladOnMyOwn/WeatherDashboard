@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    outline: none !important;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    */
+    font-family: Roboto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .input {
+    margin-left: 20vw;
+    margin-top: 20vh;
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    height: 60px;
+    padding: 8px 10px;
+    font-size: 24px;
+    border: 3px solid #cacaca;
+    transition: all .3s ease;
+    float: left;
+  }
+
+  input[type="submit"] {
+    width: 100px;
+    height: 60px;
+    font-size: 48px;
+    margin-left: 5px;
+    border: 3px solid #cacaca;
+    background-color: white;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #cacaca;
+  }
+  
+  .autocomplete-wrap {
+    float: left;
+    position: relative;
+    width: 300px;
+  }
+  
+  .autocomplete-input {
+    width: 100%;
+  }
+  
+  .autocomplete-list {
+    position: absolute;
+    top: 100%;
+    border: 3px solid #cacaca;
+    width: 100%;
+    display: none;
+    z-index: 9999;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .autocomplete-wrap.active .autocomplete-list {
+    display: block;
+    border-radius: 0 0 3px 3px;
+  }
+  
+  .autocomplete-item {
+    padding: 8px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .autocomplete-item:hover, .autocomplete-item.focused {
+    background: #eee;
+  }
+  
+  .autocomplete-wrap.active .autocomplete-input {
+    border-radius: 3px 3px 0 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .card {
+    width: 60vw;
+    background: #e7e7e7;
+    height: 40vh;
+    margin: 150px 20vw;
+    border-radius: 2px;
+  }
+  
+  .card h1{
+    padding: 5px 0;
+    text-align: center;
+  }
+  
+  .card p{
+    text-align: center;
+    margin: 40px 0;
+    font-size: 20px;
+  }
+  

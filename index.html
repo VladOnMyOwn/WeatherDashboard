@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather Dashboard</title>
+        <link rel="stylesheet" href="./css/style.css"></link>
     </head>
     <body style="overflow:hidden">
-        
+        <div class="input">
+            <input type="text" id="autocomplete" autocomplete="off" class="input_city">
+            <input type="submit" value="+" class="submit">
+        </div>
+        <div class="container">
+            <div class="card">
+                <h1 class="name" id="name"></h1>
+                <p class="temp"></p>
+                <p class="wind"></p>
+                <p class="pressure"></p>
+            </div>
+        </div>
     </body>
 </html>
+<script src="./js/script.js"></script>
+<script>
+    fetch('./content/data.json').then(data => {
+        data.json().then(json => {
+            let cities = json;
+            Autocomplete('#autocomplete', cities);
+        })
+    })
+</script>
