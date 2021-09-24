@@ -87,22 +87,69 @@
     border-bottom: 1px solid transparent;
   }
 
-  .card {
+  .container {
+    display: flexbox;
     width: 60vw;
-    background: #e7e7e7;
-    height: 40vh;
-    margin: 150px 20vw;
-    border-radius: 2px;
+    height: 24vh;
+    background: white;
+    margin: 100px 20vw;
+    position: relative;
+  }
+
+  .container_add {
+    margin-right: 2vw;
+    margin-top: 2vh;
+  }
+
+  .card {
+    min-width: 15vw;
+    height: 24vh;
+    background: white;
+    position: relative;
+    border: 3px solid #cacaca;
+    float: left;
   }
   
   .card h1{
     padding: 5px 0;
-    text-align: center;
+    text-align: left;
+    font-size: 14pt;
+    width: 10vw;
   }
   
   .card p{
-    text-align: center;
-    margin: 40px 0;
+    text-align: left;
     font-size: 20px;
+    width: 10vw;
+    font-size: 12pt;
   }
   
+  .close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  
+  .close:hover {
+    opacity: 1;
+  }
+
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+
+  .close:before {
+    transform: rotate(45deg);
+  }
+
+  .close:after {
+    transform: rotate(-45deg);
+  }

@@ -120,27 +120,43 @@ const Autocomplete = (selector, data) => {
 // вывод погоды по заданному городу
 var button = document.querySelector('.submit');
 var input = document.querySelector('.input_city');
-var main = document.querySelector('#name');
-var temp = document.querySelector('.temp');
-var wind = document.querySelector('.wind');
-var pressure = document.querySelector('.pressure');
 
 button.addEventListener('click', function(name) {
   fetch('https://api.openweathermap.org/data/2.5/weather?q=' + input.value + '&units=metric&appid=6e2b599a4fa06e47ba5cf31e33132d55')
   .then(response => response.json())
   .then(data => {
-
-    var nameValue = input.value;
-    var tempValue = data['main']['temp'];
-    var windValue = data['wind']['speed'];
-    var pressureValue = data['main']['pressure'];
-
-    main.innerHTML = nameValue;
-    temp.innerHTML = "Температура: " + tempValue + " С°";
-    wind.innerHTML = "Ветер: " + windValue + " м/с";
-    pressure.innerHTML = "Давление: " + pressureValue + " мм";
-    input.value = "";
     
+    var nameValue = input.value;
+    var tempValue = Math.round(data['main']['temp']);
+    var windValue = Math.round(data['wind']['speed']);
+    var pressureValue = data['main']['pressure'];
+    
+    var div = document.createElement('div');
+    div.classList.add('card');
+    div.classList.add('container_add');
+    var h = document.createElement('h1');
+    h.innerHTML = nameValue;
+    h.classList.add('name');
+    div.appendChild(h);
+    // var closer = document.createElement('span');
+    // closer.classList('close');
+    // div.appendChild(closer);
+    var p1 = document.createElement('p');
+    p1.innerHTML = "Температура: " + tempValue + " С°";
+    p1.classList.add('temp');
+    div.appendChild(p1);
+    var p2 = document.createElement('p');
+    p2.innerHTML = "Ветер: " + windValue + " м/с";
+    p2.classList.add('wind');
+    div.appendChild(p2);
+    var p3 = document.createElement('p');
+    p3.innerHTML = "Давление: " + pressureValue + " мм";
+    p3.classList.add('pressure');
+    div.appendChild(p3);
+    var container = document.querySelector('.container');
+    container.appendChild(div);
+    input.value = "";
+
   })
   .catch(err => alert("Не удалось получить данные о погоде в данном городе."))
 });
